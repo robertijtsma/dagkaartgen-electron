@@ -1,92 +1,37 @@
 {
-  "name": "LeasingRechner",
+  "name": "dagkaartgen-electron",
   "version": "1.0.0",
-  "description": "Electron Desktop App Wrapper for PWAs / leasingrechnen.at",
-  "homepage": "https://www.leasingrechnen.at",
-  "main": "index.js",
-  "author": {
-    "name": "xTools",
-    "email": "apps@xtools.at"
-  },
-  "license": "GPLv3",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/xtools-at/Electron-PWA-Wrapper.git"
-  },
+  "description": "ElNosso - Dagkaartgen",
+  "main": "main.js",
   "scripts": {
-    "electron": "electron .",
-    "start": "./node_modules/.bin/electron .",
-    "pack": "electron-builder --dir",
-    "dist": "electron-builder",
-    "build": "./node_modules/.bin/electron-builder build",
-    "postinstall": "electron-builder install-app-deps"
+    "start": "electron .",
+    "dist": "dagkaartgen-electron"
+  },
+  "build": {
+    "appId": "com.qbuzz.dagkaartgen",
+    "productName": "Dagkaart Generator",
+    "directories": {
+      "output": "builds"
+    },
+    "files": [
+      "**/*"
+    ],
+    "publish": null,
+    "win": {
+      "target": "nsis",
+      "icon": "icon.ico"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "icon.icns"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": false
+    }
   },
   "devDependencies": {
-    "electron": "~1.7.12",
-    "electron-builder": "^19.55.3"
-  },
-  "dependencies": {},
-  "files": [
-    "*.js",
-    "src",
-    "node_modules"
-  ],
-  "build": {
-    "appId": "at.xtools.leasingrechner.desktop",
-    "productName": "Leasing Rechner",
-    "copyright": "Copyright © 2018 leasingrechnen.at",
-    "mac": {
-      "category": "public.app-category.finance",
-      "target": [
-        {
-          "target": "dmg"
-        },
-        {
-          "target": "mas"
-        }
-      ],
-      "icon": "build/icon.icns"
-    },
-    "dmg": {},
-    "mas": {},
-    "win": {
-      "target": [
-        {
-          "target": "appx"
-        },
-        {
-          "target": "portable"
-        }
-      ],
-      "icon": "build/icon.ico",
-      "legalTrademarks": "Copyright © 2018 leasingrechnen.at",
-      "publisherName": "xTools"
-    },
-    "appx": {
-      "applicationId": "xTools.LeasingRechner",
-      "backgroundColor": "#F44336",
-      "displayName": "Leasing Rechner",
-      "identityName": "22127xTools.LeasingRechner",
-      "publisher": "CN=84B32E2F-0B83-4D35-8A43-109EF795E8E1",
-      "publisherDisplayName": "xTools",
-      "languages": [
-        "de"
-      ]
-    },
-    "portable": {},
-    "linux": {
-      "target": [
-        {
-          "target": "AppImage"
-        }
-      ],
-      "maintainer": "xTools",
-      "vendor": "leasingrechnen.at",
-      "synopsis": "Leasingrechner App",
-      "category": "Office"
-    },
-    "appImage": {
-      "systemIntegration": "doNotAsk"
-    }
+    "electron": "^29.1.2",
+    "electron-builder": "^24.6.0"
   }
 }
